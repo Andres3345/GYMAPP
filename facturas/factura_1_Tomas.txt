@@ -1,0 +1,9 @@
+*** GYM MANAGEMENT ***
+Factura N° 1
+Cliente: Tomas
+Membresía: mensual
+Monto: $15000.0
+Fecha: 2026-02-21
+Estado: PAGADO
+--------------------------
+Gracias por su pago!

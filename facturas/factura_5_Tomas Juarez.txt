@@ -1,0 +1,9 @@
+*** GYM MANAGEMENT ***
+Factura N° 5
+Cliente: Tomas Juarez
+Membresía: mensual
+Monto: $20000.0
+Fecha: 2026-03-10
+Estado: PAGADO
+--------------------------
+Gracias por su pago!

@@ -1,0 +1,9 @@
+*** GYM MANAGEMENT ***
+Factura N° 4
+Cliente: Dante
+Membresía: mensual
+Monto: $12000.0
+Fecha: 2026-03-10
+Estado: PAGADO
+--------------------------
+Gracias por su pago!
