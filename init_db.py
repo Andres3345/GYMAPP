@@ -1,8 +1,4 @@
-import sqlite3, os
-
-DB_DIR = os.path.join(os.path.expanduser("~"), "GymGest")
-os.makedirs(DB_DIR, exist_ok=True)
-DB_PATH = os.path.join(DB_DIR, "gym_management.db")
+import sqlite3
 
 schema = """
 CREATE TABLE IF NOT EXISTS usuarios (
@@ -54,12 +50,12 @@ CREATE TABLE IF NOT EXISTS vencimientos (
 """
 
 def init_db():
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect("gym_management.db")
     cursor = conn.cursor()
     cursor.executescript(schema)
     conn.commit()
     conn.close()
-    print(f"Base de datos creada con éxito: {DB_PATH}")
+    print("Base de datos creada con éxito: gym_management.db")
 
 if __name__ == "__main__":
     init_db()

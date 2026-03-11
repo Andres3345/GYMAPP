@@ -1,0 +1,9 @@
+*** GYM MANAGEMENT ***
+Factura N° 10
+Cliente: Nicolas
+Membresía: mensual
+Monto: $12000.0
+Fecha: 2026-03-11
+Estado: PAGADO
+--------------------------
+Gracias por su pago!
