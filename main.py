@@ -28,5 +28,8 @@ app.include_router(membresias.router)
 app.include_router(notificaciones.router)
 app.include_router(reportes.router)
 
+
+
+
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)

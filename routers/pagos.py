@@ -2,6 +2,7 @@ import datetime
 from fastapi import APIRouter, HTTPException, Header
 from db import get_connection
 import jwt, os
+import sqlite3
 
 router = APIRouter(prefix="/pagos", tags=["Pagos"])
 SECRET_KEY = os.getenv("SUPER_SECRET_KEY", "supersecret")
@@ -108,7 +109,7 @@ def listar_pagos(authorization: str = Header(...)):
 
     for pago in pagos:
         pago["factura_texto"] = (
-            f"*** GYM MANAGEMENT ***\n"
+            f"🏋️ GYM MANAGEMENT\n\n"
             f"Factura N° {pago['id_pago']}\n"
             f"Cliente: {pago['nombre_cliente']}\n"
             f"Membresía: {pago['tipo_membresia']}\n"
@@ -116,7 +117,7 @@ def listar_pagos(authorization: str = Header(...)):
             f"Fecha: {pago['fecha_pago']}\n"
             f"Estado: {pago['estado'].upper()}\n"
             f"--------------------------\n"
-            f"Gracias por su pago!"
+            f"Gracias por tu pago 💪"
         )
 
     hoy = datetime.date.today()
@@ -158,3 +159,21 @@ def eliminar_pago(id_pago: int, authorization: str = Header(...)):
         raise HTTPException(status_code=400, detail=str(e))
     finally:
         conn.close()
+
+@router.get("/mensaje/clientes/{id_cliente}")
+def generar_mensaje_cliente(id_cliente: int):
+    conn = get_connection()
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT nombre, telefono FROM clientes WHERE id_cliente = ?", (id_cliente,))
+    cliente = cursor.fetchone()
+    conn.close()
+
+    if not cliente:
+        raise HTTPException(status_code=404, detail="Cliente no encontrado")
+
+    # Mensaje fijo y sencillo
+    mensaje = f"Hola {cliente['nombre']}, tu pago fue registrado correctamente."
+
+    return {"texto": mensaje, "telefono": cliente["telefono"]}

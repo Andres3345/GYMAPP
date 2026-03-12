@@ -1,0 +1,9 @@
+*** GYM MANAGEMENT ***
+Factura N° 14
+Cliente: Sergio
+Membresía: mensual
+Monto: $12000.0
+Fecha: 2026-03-12
+Estado: PAGADO
+--------------------------
+Gracias por su pago!
